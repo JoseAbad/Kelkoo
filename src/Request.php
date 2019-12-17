@@ -2,7 +2,7 @@
 
 namespace Kelkoo;
 
-class Category
+class Request
 {
 	public function __construct()
 	{

@@ -2,7 +2,7 @@
 
 namespace Kelkoo;
 
-class Category
+class Merchant
 {
 	public function __construct()
 	{

@@ -2,7 +2,7 @@
 
 namespace Kelkoo;
 
-class Category
+class Flight
 {
 	public function __construct()
 	{

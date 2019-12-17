@@ -2,7 +2,7 @@
 
 namespace Kelkoo;
 
-class Category
+class CatalogList
 {
 	public function __construct()
 	{
