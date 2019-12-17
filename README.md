@@ -1,1 +1,1 @@
-# Kelkoo
+# Kelkoo Composer Library
