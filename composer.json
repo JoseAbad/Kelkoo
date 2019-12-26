@@ -1,6 +1,6 @@
 {
     "name": "jabad/kelkoo",
-    "description": "Kelkoo API management composer project",
+    "description": "Kelkoo API Management",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -9,7 +9,7 @@
             "email": "jose.abad83@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.3.0"
     },
