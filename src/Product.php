@@ -6,17 +6,17 @@ class Product extends Request
 {
 	const PATH = "/V3/productSearch";
 
-	private $keys = ['query','category','merchantId','classification','max_refines','refinement','refinement','sort','start','results','show_products','show_subcategories','logicalType','ean','brandName','offerId','productId','automaticOr','mobileFriendly','show_priceBounds','boostMobileResults','imagesOverSsl','rebatePercentage']; 
+	private $_keys = ['query','category','merchantId','classification','max_refines','refinement','refinement','sort','start','results','show_products','show_subcategories','logicalType','ean','brandName','offerId','productId','automaticOr','mobileFriendly','show_priceBounds','boostMobileResults','imagesOverSsl','rebatePercentage']; 
 
-	private $mandatory_keys = ['query'];
+	private $_mandatory_keys = ['query'];
 	
 	public function search( $parameters, $type = "xml")
 	{	
-		if( $this->_checkMandatoryKeys($parameters) === false ) $this->result = null;
+		if( $this->_checkMandatoryKeys($parameters) === false ) $this->_result = null;
 
 		else {
 
-			foreach ($this->keys as $key ) {
+			foreach ($this->_keys as $key ) {
 				$query[$key] = isset($parameters[$key]) ? $parameters[$key] : '';
 			}
 
@@ -29,28 +29,28 @@ class Product extends Request
 
 	public function getRefinements()
 	{
-		if( !empty($this->result) && !empty($this->result->refinements)) {
-			return $this->result->refinements;
+		if( !empty($this->_result) && !empty($this->_result->refinements)) {
+			return $this->_result->refinements;
 		} return null;
 	}
 
 	public function getProducts()
 	{
-		if( !empty($this->result) && !empty($this->result->products)) {
-			return $this->result->products;
+		if( !empty($this->_result) && !empty($this->_result->products)) {
+			return $this->_result->products;
 		} return null;
 	}
 
 	public function getCategories()
 	{
-		if( !empty($this->result) && !empty($this->result->categories)) {
-			return $this->result->categories;
+		if( !empty($this->_result) && !empty($this->_result->categories)) {
+			return $this->_result->categories;
 		} return null;
 	}
 
 	private function _checkMandatoryKeys( $parameters )
 	{
-		foreach ($this->mandatory_keys as $key) {
+		foreach ($this->_mandatory_keys as $key) {
 			if(!array_key_exists($key, $parameters)) return false;
 		} return true;
 	}

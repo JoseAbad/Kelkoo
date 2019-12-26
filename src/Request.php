@@ -16,15 +16,15 @@ class Request
 
 	public function __construct( $key, $trackingId, $country )
 	{
-		$this->key = $key;
-		$this->trackingId = $trackingId;
-		$this->url = str_replace('[country]',$country,self::URL);
+		$this->_key = $key;
+		$this->_trackingId = $trackingId;
+		$this->_url = str_replace('[country]',$country,self::URL);
 	}
 
 	public function getResult()
 	{
-		if( !empty($this->result) ) {
-			return $this->result;
+		if( !empty($this->_result) ) {
+			return $this->_result;
 		} return "empty";
 	}
 
@@ -40,18 +40,18 @@ class Request
 		curl_close($ch);
 
 		if($type === 'json') {
-			$this->result = json_decode($result);
-		} else $this->result = simplexml_load_string($result);
+			$this->_result = json_decode($result);
+		} else $this->_result = simplexml_load_string($result);
 	}
 
 	protected function signUrl( $path = "" )
 	{
 		$timestamp = time();
 		$path      = str_replace(" ","+",$path);
-		$tmp       = $path . "&aid=" . $this->trackingId . "&timestamp=" . $timestamp;
-		$string    = $path . "&aid=" . $this->trackingId . "&timestamp=" . $timestamp . $this->key;
+		$tmp       = $path . "&aid=" . $this->_trackingId . "&timestamp=" . $timestamp;
+		$string    = $path . "&aid=" . $this->_trackingId . "&timestamp=" . $timestamp . $this->_key;
 		$token     = str_replace(array("+", "/", "="), array(".", "_", "-"), base64_encode(pack('H*',md5($string))));
-		$sign      = $this->url . $tmp . "&hash=" . $token; 
+		$sign      = $this->_url . $tmp . "&hash=" . $token; 
 
 		return $sign;
 	}
