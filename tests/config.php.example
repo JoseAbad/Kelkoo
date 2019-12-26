@@ -1,0 +1,7 @@
+<?php
+# Set your private key
+const KELKOO_KEY = '';
+# Set your tracking identifier
+const KELKOO_TRACKING_ID = '';
+# Set your country
+const KELKOO_COUNTRY = '';

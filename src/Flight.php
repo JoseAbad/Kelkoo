@@ -2,10 +2,7 @@
 
 namespace Kelkoo;
 
-class Flight
+class Flight extends Request
 {
-	public function __construct()
-	{
-	
-	}
+
 }

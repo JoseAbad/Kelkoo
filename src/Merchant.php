@@ -2,10 +2,7 @@
 
 namespace Kelkoo;
 
-class Merchant
+class Merchant extends Request
 {
-	public function __construct()
-	{
-	
-	}
+
 }
